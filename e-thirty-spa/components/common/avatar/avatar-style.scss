@@ -1,0 +1,11 @@
+@import '~StylesPath/color';
+@import '~StylesPath/variables';
+
+#gravatar-dropdown {
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $dropdown_action_btn_size;
+  }
+}
+

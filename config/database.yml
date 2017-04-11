@@ -1,0 +1,23 @@
+login: &login
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  database: e_thirty_development
+  <<: *login
+
+test: &test
+  database: e_thirty_test
+  <<: *login
+
+cucumber:
+  <<: *test
+
+production:
+  database: e_thirty_production
+  <<: *login
+
+staging:
+  database: e_thirty_staging
+  <<: *login
