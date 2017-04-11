@@ -1,29 +1,45 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { Avatar } from 'CommonComponents';
-import ActionsDropdown from './actions-dropdown';
 
 import './header-style';
 
-const Header = ({ signOutHandler, addMessageHandler }) => (
-  <div className="header">
-    <Link className="header__logo" to={'/'}>
-      <span className="header__image" />
-      <span>E30</span>
-    </Link>
-    <div className="header__action-btn">
-      <Avatar signOutHandler={signOutHandler} />
-    </div>
+class Header extends Component {
+  static propTypes = {
+    signOutHandler: PropTypes.func,
+    userData: PropTypes.object,
+  };
 
-    <div className="header__action-btn m-r-7">
-      <ActionsDropdown addMessageHandler={addMessageHandler} />
-    </div>
-  </div>
-);
+  static gotoSignUpPage = () => {
+    window.location.href = '/users/sign_up';
+  };
 
-Header.propTypes = {
-  signOutHandler: PropTypes.func,
-  addMessageHandler: PropTypes.func,
-};
+  static gotoLoginPage = () => {
+    window.location.href = '/users/sign_in';
+  };
+
+  render() {
+    const { signOutHandler, userData } = this.props;
+
+    return (
+      <div className="header">
+        <Link className="header__logo" to={'/'}>
+          <span className="header__image" />
+        </Link>
+
+        {userData.authenticated ? (
+          <div className="header__action-btn">
+            <Avatar signOutHandler={signOutHandler} />
+          </div>
+        ) : (
+          <div className="header__action-btn">
+            <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>
+            <div className="header__btn" onClick={this.constructor.gotoLoginPage}>Login</div>
+          </div>
+        )}
+      </div>
+    );
+  }
+}
 
 export default Header;

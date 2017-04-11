@@ -2,8 +2,8 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'E30'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'E30'}"}
+    %title= content_for?(:title) ? yield(:title) : 'e30'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'e30'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = csrf_meta_tags
   %body.e-thirty

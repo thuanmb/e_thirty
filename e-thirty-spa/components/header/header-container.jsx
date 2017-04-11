@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import 'whatwg-fetch';
 import Header from './header';
 
 class HeaderContainer extends Component {
+  static propTypes = {
+    user: PropTypes.object,
+  };
+
   static submitSignOut() {
     fetch('/users/sign_out', {
       method: 'DELETE',
@@ -15,6 +19,7 @@ class HeaderContainer extends Component {
   render() {
     return (
       <Header
+        userData={this.props.user}
         signOutHandler={() => this.constructor.submitSignOut()}
       />
     );

@@ -1,11 +1,11 @@
 Apipie.configure do |config|
-  config.app_name                = "E30"
+  config.app_name                = "e30"
   config.api_base_url            = "/api"
   config.doc_base_url            = "/apidoc"
   config.validate = false
   # where is your API defined?
   config.api_controllers_matcher = "#{Rails.root}/app/controllers/api/**/*.rb"
-  config.app_info = "Welcome to E30 API documentation."
+  config.app_info = "Welcome to e30 API documentation."
 
   config.authenticate = Proc.new do
     authenticate_or_request_with_http_basic do |username, password|

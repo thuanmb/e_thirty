@@ -1,4 +1,4 @@
-# E30 SPA
+# e30 SPA
 
 ## Dependencies
 * [Npm (ships with Node.js)](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager)
