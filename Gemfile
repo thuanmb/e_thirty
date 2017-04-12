@@ -25,6 +25,7 @@ gem 'rails_admin', '~> 1.0'
 gem 'multi_json'
 gem 'faker'
 gem 'devise'
+gem 'kaminari'
 
 group :development do
   gem 'better_errors'

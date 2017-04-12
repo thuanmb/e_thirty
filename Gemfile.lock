@@ -476,6 +476,7 @@ DEPENDENCIES
   html2haml
   http
   jquery-rails
+  kaminari
   launchy
   memoist
   multi_json
