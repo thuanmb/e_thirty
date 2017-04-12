@@ -1,10 +1,11 @@
-export const fetch = (beforeAction, afterAction, options) => (dispatch) => {
+export const fetchData = (beforeAction, afterAction, url) => (dispatch) => {
   dispatch({
     type: beforeAction,
   });
 
   return $.ajax({
-    ...options,
+    url,
+    type: 'GET',
     contentType: 'application/json',
   }).then((response) => {
     if (response.status === 'OK') {
@@ -15,4 +16,3 @@ export const fetch = (beforeAction, afterAction, options) => (dispatch) => {
     }
   });
 };
-
