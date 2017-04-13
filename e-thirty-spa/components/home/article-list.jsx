@@ -7,7 +7,8 @@ import { fetchArticles } from './home-actions';
 
 class ArticleList extends PureComponent {
   static propTypes = {
-    articles: PropTypes.array,
+    articles: PropTypes.object,
+    articleIds: PropTypes.array,
     fetchArticlesDispatcher: PropTypes.func,
   };
 
@@ -16,18 +17,19 @@ class ArticleList extends PureComponent {
   }
 
   render() {
-    const { articles } = this.props;
+    const { articles, articleIds } = this.props;
 
     return (
       <div className="col-xs-8 col-xs-offset-2 home__feed-container">
         <InfiniteScroll
           pageStart={1}
           loadMore={(page) => { this.loadMoreArticles(page); }}
-          hasMore={!(articles.length === 0)}
+          hasMore={!(articleIds.length === 0)}
           loader={<Spinner className="small" />}
+          threshold={500}
         >
-          {articles.map((data) => (
-            <ArticleItem data={data} key={`articles-item-${data.id}`} />
+          {articleIds.map((articleId) => (
+            <ArticleItem data={articles[articleId]} key={`articles-item-${articleId}`} />
           ))}
         </InfiniteScroll>
       </div>
@@ -35,6 +37,10 @@ class ArticleList extends PureComponent {
   }
 }
 
-export default connect(null, {
+const mapStateToProps = ({ entities: { articles: { byIds } } }) => ({
+  articles: byIds,
+});
+
+export default connect(mapStateToProps, {
   fetchArticlesDispatcher: fetchArticles,
 })(ArticleList);

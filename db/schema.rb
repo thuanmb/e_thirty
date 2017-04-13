@@ -22,9 +22,12 @@ ActiveRecord::Schema.define(version: 20170412134657) do
     t.text     "content"
     t.text     "image_url"
     t.datetime "published_at"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170412134657) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

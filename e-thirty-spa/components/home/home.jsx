@@ -22,10 +22,10 @@ class Home extends PureComponent {
     return (
       <div className="home container-fluid">
         <div className="row m-t-20">
-          {articles.isLoading ? (
+          {articles.isLoading && articles.byIds.length === 0 ? (
             <Spinner />
           ) : (
-            <ArticleList articles={articles.data} />
+            <ArticleList articleIds={articles.allIds} />
           )}
         </div>
       </div>
@@ -33,7 +33,7 @@ class Home extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ articles }) => ({
+const mapStateToProps = ({ entities: { articles } }) => ({
   articles,
 });
 

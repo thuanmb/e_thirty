@@ -12,7 +12,7 @@ const ArticleItem = ({ data }) => {
   const link = `articles/${id}`;
 
   return (
-    <div className="row home__feed home__feed-article" key={`article-item-${data.id}`} >
+    <div className="row home__feed home__feed-article" key={`article-item-${id}`} >
       <div className="col-md-4 home__feed__media">
         <Link to={link}>
           <img src={imageUrl} alt="" />

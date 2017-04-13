@@ -44,6 +44,7 @@
     "moment-timezone": "^0.5.13",
     "node-object-hash": "^1.1.6",
     "node-sass": "^4.0.0",
+    "normalizr": "^3.2.2",
     "postcss-loader": "^1.2.1",
     "react": "^15.2.1",
     "react-bootstrap": "^0.30.8",

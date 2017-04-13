@@ -6,6 +6,7 @@ class CreateArticles < ActiveRecord::Migration
       t.text :content
       t.text :image_url
       t.datetime :published_at
+      t.belongs_to :user, index: true
 
       t.timestamps null: false
     end
