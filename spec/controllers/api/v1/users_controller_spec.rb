@@ -25,7 +25,6 @@ describe Api::V1::UsersController do
         get :me, format: :json
         expect(response_hash[:status]).to eq 'OK'
         expect(response_hash[:data][:id]).to eq another_user.id
-        expect(response_hash[:data][:favourite_articles].first[:id]).to eq article.id
       end
     end
 

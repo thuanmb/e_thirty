@@ -14,10 +14,6 @@ $avatar_size: 35px;
   padding: 0 20px;
   height: 40px;
 
-  @include mobile-view{
-    padding: 5px 0;
-  };
-
   &__title{
     margin: 0 0 0 100px;
     font-size: 28px;

@@ -1,18 +1,16 @@
-describe Queries::ArticleQuery do
+describe Queries::BookmarkQuery do
   describe '#query' do
+    let(:user) { create(:user) }
+
     before do
       11.times.each do
-        Article.create(
-            title: ::Faker::Lorem.sentence,
-            subtitle: ::Faker::Lorem.sentence,
-            image_url: ::Faker::Internet.url,
-            content: ::Faker::Lorem.sentence,
-            published_at: rand(1..12).minutes.ago)
+        article = create(:article, user: user)
+        create(:bookmark, user: user, article: article)
       end
     end
 
     let(:per_page) { 10 }
-    subject { described_class.query(page, per_page) }
+    subject { described_class.query(user.id, page, per_page) }
 
     context 'when it is the first page' do
       context 'when page is specific' do

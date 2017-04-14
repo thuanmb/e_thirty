@@ -7,6 +7,7 @@ import Authorized from './pages/authorized/authorized';
 import NoMatch from './components/404/404';
 import Home from './components/home/home';
 import Article from './components/article/article';
+import Bookmark from './components/bookmark/bookmark';
 import { LOGGED_IN } from './reducers/user-reducer';
 
 const checkAuth = (nextState, replace, callback) => {
@@ -26,6 +27,7 @@ const Routes = (
       <Route component={Authorized} onEnter={checkAuth}>
         <IndexRoute component={Home} />
         <Route path="articles/:id" component={Article} />
+        <Route path="bookmarks" component={Bookmark} />
       </Route>
     </Route>
     <Route path="*" component={NoMatch} />

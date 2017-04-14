@@ -19,4 +19,5 @@ export const ApiUrls = {
   ArticlesIndex: ApiObject(`${fullApiPath}/articles?page=:page`),
   Me: `${fullApiPath}/users/me`,
   Bookmarks: `${fullApiPath}/bookmarks`,
+  BookmarksIndex: ApiObject(`${fullApiPath}/bookmarks?page=:page`),
 };

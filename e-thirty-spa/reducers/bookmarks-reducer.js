@@ -1,9 +1,8 @@
-import { normalize, schema } from 'normalizr';
+import { normalize } from 'normalizr';
+import { article } from './types';
 
-export const REQUEST_ARTICLES = 'REQUEST_ARTICLES';
-export const RECEIVE_ARTICLES = 'RECEIVE_ARTICLES';
-
-const article = new schema.Entity('articles');
+export const REQUEST_BOOKMARKS = 'REQUEST_BOOKMARKS';
+export const RECEIVE_BOOKMARKS = 'RECEIVE_BOOKMARKS';
 
 const getArticleEntities = (data) => {
   const articlesData = { articles: data };
@@ -11,15 +10,15 @@ const getArticleEntities = (data) => {
   return normalize(articlesData, articlesSchema);
 };
 
-const articlesReducer = (state = { isLoading: false, byIds: {}, allIds: [] }, action) => {
+const bookmarksReducer = (state = { isLoading: false, byIds: {}, allIds: [] }, action) => {
   switch (action.type) {
-    case REQUEST_ARTICLES:
+    case REQUEST_BOOKMARKS:
       return {
         ...state,
         isLoading: true,
       };
 
-    case RECEIVE_ARTICLES:
+    case RECEIVE_BOOKMARKS:
       const articles = action.response.data;
       const normalizedArticles = getArticleEntities(articles);
       return {
@@ -40,4 +39,4 @@ const articlesReducer = (state = { isLoading: false, byIds: {}, allIds: [] }, ac
   }
 };
 
-export default articlesReducer;
+export default bookmarksReducer;

@@ -37,3 +37,11 @@ export const bookmark = (articleId) => (
     }),
   })
 );
+
+export const getMyBookmark = () => (
+  $.ajax({
+    url: ApiUrls.Bookmarks,
+    type: 'GET',
+    contentType: 'application/json',
+  })
+);

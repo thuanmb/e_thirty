@@ -22,6 +22,17 @@ class Article extends Component {
     };
   }
 
+  getAddToFavouriteCopy(bookmarked) {
+    const { requestingBookmark, bookmarkCreated } = this.state;
+    if (bookmarked || bookmarkCreated) {
+      return 'Added to your favourite';
+    } else if (requestingBookmark) {
+      return 'Adding to your favourite';
+    }
+
+    return 'Add to your favourite';
+  }
+
   addToMyFavourite() {
     this.setState({
       requestingBookmark: true,
@@ -40,7 +51,8 @@ class Article extends Component {
       subtitle,
       imageUrl,
       content,
-      publishedAt } = articles[id];
+      publishedAt,
+      bookmarked } = articles[id];
     const { requestingBookmark, bookmarkCreated } = this.state;
 
     return (
@@ -63,8 +75,8 @@ class Article extends Component {
 
         {userAuthenticated && (
           <div className="m-t-40 float-right">
-            <Button bsStyle="warning" onClick={() => this.addToMyFavourite()} loading={requestingBookmark} disabled={bookmarkCreated} >
-              {requestingBookmark ? 'Adding to your favourite' : (bookmarkCreated ? 'Added to my favourite' : 'Add to your favourite')}
+            <Button bsStyle="warning" onClick={() => this.addToMyFavourite()} loading={requestingBookmark} disabled={bookmarkCreated || bookmarked} >
+              {this.getAddToFavouriteCopy(bookmarked)}
             </Button>
           </div>
         )}

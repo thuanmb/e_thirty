@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Gravatar from 'react-gravatar';
 import { ButtonToolbar, Dropdown, MenuItem } from 'react-bootstrap';
+import { history } from 'CorePath/store';
 
 import './avatar-style';
 
@@ -13,6 +14,10 @@ const Avatar = ({ signOutHandler }) => (
       <Dropdown.Menu className="super-colors">
         <MenuItem eventKey="1" onClick={signOutHandler}>
           Logout
+        </MenuItem>
+
+        <MenuItem eventKey="2" onSelect={() => history.push('bookmarks')}>
+          My favourites
         </MenuItem>
       </Dropdown.Menu>
     </Dropdown>
