@@ -1,3 +1,5 @@
+import { ApiUrls } from './api-urls';
+
 export const fetchData = (beforeAction, afterAction, url) => (dispatch) => {
   dispatch({
     type: beforeAction,
@@ -16,3 +18,22 @@ export const fetchData = (beforeAction, afterAction, url) => (dispatch) => {
     }
   });
 };
+
+export const isSignedIn = () => (
+  $.ajax({
+    url: ApiUrls.Me,
+    type: 'GET',
+    contentType: 'application/json',
+  })
+);
+
+export const bookmark = (articleId) => (
+  $.ajax({
+    url: ApiUrls.Bookmarks,
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({
+      article_id: articleId,
+    }),
+  })
+);

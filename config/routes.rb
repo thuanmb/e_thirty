@@ -15,6 +15,7 @@ Rails.application.routes.draw do
           get :me
         end
       end
+      resources :bookmarks, only: [:create]
     end
   end
 

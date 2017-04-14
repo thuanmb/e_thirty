@@ -5,7 +5,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     skip_authorization
 
     data = if current_user
-            UserRepresenter.prepare(UserDecorator.decorate(current_user))
+             current_user
            else
              false
            end

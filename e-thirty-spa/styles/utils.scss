@@ -267,16 +267,13 @@
 
 /* Custom  */
 .action-dropdown-btn {
+  margin-top: 2px;
+
   button {
     padding: 2px;
     width: $dropdown_action_btn_size;
     height: $dropdown_action_btn_size;
-    border: 2px solid $blue_main;
     border-radius: $dropdown_action_btn_size;
-
-    &:hover {
-      border-color: $pink;
-    }
   }
 }
 

@@ -18,6 +18,12 @@ article.post-article {
     font-style: italic;
   }
 
+  .post-author {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    font-size: 16px;
+  }
+
   .post-content {
     h3, h4, h5 {
       line-height: 1.5;
