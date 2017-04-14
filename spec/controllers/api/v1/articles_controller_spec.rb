@@ -68,5 +68,15 @@ describe Api::V1::ArticlesController do
         expect(response_hash[:data].length).to eq 1
       end
     end
+
+    context 'search article' do
+      let(:params) {{ page: 1, query: Article.first.title }}
+
+      it 'should return first article' do
+        expect(response_hash[:status]).to eq 'OK'
+        expect(response_hash[:data].length).to eq 1
+        expect(response_hash[:data].first[:id]).to eq Article.first.id
+      end
+    end
   end
 end

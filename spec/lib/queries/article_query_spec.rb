@@ -12,7 +12,8 @@ describe Queries::ArticleQuery do
     end
 
     let(:per_page) { 10 }
-    subject { described_class.query(page, per_page) }
+    let(:query_param) { nil }
+    subject { described_class.query(page, per_page, query_param) }
 
     context 'when it is the first page' do
       context 'when page is specific' do
@@ -29,6 +30,16 @@ describe Queries::ArticleQuery do
 
       it 'should return list of 1' do
         expect(subject.size).to eq 1
+      end
+    end
+
+    context 'search article' do
+      let(:page) { 1 }
+      let(:query_param) { Article.first.title }
+
+      it 'should return first article' do
+        expect(subject.size).to eq 1
+        expect(subject.first.id).to eq Article.first.id
       end
     end
   end

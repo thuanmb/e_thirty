@@ -16,11 +16,16 @@ class HeaderContainer extends Component {
     });
   }
 
+  static handleSearch(query) {
+    window.console.log(query);
+  }
+
   render() {
     return (
       <Header
         userData={this.props.user}
         signOutHandler={() => this.constructor.submitSignOut()}
+        handleSearch={(query) => this.constructor.handleSearch(query)}
       />
     );
   }
