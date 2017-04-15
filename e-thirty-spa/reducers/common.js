@@ -9,7 +9,7 @@ export const getArticleEntities = (data) => {
 };
 
 export const articleListReducer = (requestAction, receiveAction, defaultReducer) => (
-  (state = { isLoading: false, hasMore: false, byIds: {}, allIds: [] }, action) => {
+  (state = { isLoading: false, hasMore: false, byIds: {}, allIds: [], usersByIds: {} }, action) => {
     switch (action.type) {
       case requestAction:
         return {
@@ -18,7 +18,8 @@ export const articleListReducer = (requestAction, receiveAction, defaultReducer)
         };
 
       case receiveAction:
-        const articles = action.response.data;
+        let articles = action.response.data;
+        articles = articles instanceof Array ? articles : [articles];
         const normalizedArticles = getArticleEntities(articles);
         return {
           ...state,

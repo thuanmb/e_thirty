@@ -7,7 +7,8 @@ export const ADD_ARTICLES = 'ADD_ARTICLES';
 const articlesReducer = articleListReducer(REQUEST_ARTICLES, RECEIVE_ARTICLES, (state, action) => {
   switch (action.type) {
     case ADD_ARTICLES:
-      const articles = action.response.data;
+      let articles = action.response.data;
+      articles = articles instanceof Array ? articles : [articles];
       const normalizedArticles = getArticleEntities(articles);
 
       return {
@@ -15,6 +16,10 @@ const articlesReducer = articleListReducer(REQUEST_ARTICLES, RECEIVE_ARTICLES, (
         byIds: {
           ...state.byIds,
           ...normalizedArticles.entities.articles,
+        },
+        usersByIds: {
+          ...state.userByIds,
+          ...normalizedArticles.entities.users,
         },
       };
     default:

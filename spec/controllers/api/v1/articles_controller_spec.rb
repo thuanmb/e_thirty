@@ -79,4 +79,19 @@ describe Api::V1::ArticlesController do
       end
     end
   end
+
+  describe 'GET /show' do
+    let(:article) { create(:article) }
+
+    before do
+      warden.set_user(nil)
+    end
+
+    it 'should show the article' do
+      get :show, id: article.id, format: :json
+
+      expect(response_hash[:status]).to eq 'OK'
+      expect(response_hash[:data][:id]).to eq article.id
+    end
+  end
 end

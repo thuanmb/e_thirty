@@ -9,7 +9,7 @@ const ArticleItem = ({ data }) => {
     subtitle,
     imageUrl,
     publishedAt } = data;
-  const link = `articles/${id}`;
+  const link = `/articles/${id}`;
 
   return (
     <div className="row home__feed home__feed-article" key={`article-item-${id}`} >
