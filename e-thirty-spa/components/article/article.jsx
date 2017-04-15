@@ -74,9 +74,10 @@ class Article extends Component {
         </div>
 
         {userAuthenticated && (
-          <div className="m-t-40 float-right">
-            <Button bsStyle="warning" onClick={() => this.addToMyFavourite()} loading={requestingBookmark} disabled={bookmarkCreated || bookmarked} >
-              {this.getAddToFavouriteCopy(bookmarked)}
+          <div className="m-t-40 text-right p-t-20 b-grey-t">
+            <Button className="btn-no-outline" onClick={() => this.addToMyFavourite()} loading={requestingBookmark} disabled={bookmarkCreated || bookmarked} >
+              <i className="material-icons">add</i>
+              <span>{this.getAddToFavouriteCopy(bookmarked)}</span>
             </Button>
           </div>
         )}

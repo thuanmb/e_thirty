@@ -1,4 +1,5 @@
 @import "~StylesPath/color";
+@import "~StylesPath/mixin";
 
 article.post-article {
   padding: 40px 50px;
@@ -6,6 +7,10 @@ article.post-article {
   -webkit-box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.30);
   margin-bottom: 20px;
   background-color: $white;
+
+  @include mobile-view {
+    padding: 30px;
+  }
 
   .post-title {
     font-weight: 600;
@@ -36,6 +41,16 @@ article.post-article {
 
     a {
       color: $green_main;
+    }
+  }
+
+  .btn {
+    i {
+      line-height: 0px;
+      font-size: 20px;
+      position: relative;
+      top: 4px;
+      left: -3px;
     }
   }
 }
