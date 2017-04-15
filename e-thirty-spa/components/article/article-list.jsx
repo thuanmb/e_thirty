@@ -9,20 +9,23 @@ class ArticleList extends PureComponent {
     articleIds: PropTypes.array,
     fetchArticlesDispatcher: PropTypes.func,
     hasMore: PropTypes.bool,
+    query: PropTypes.string,
+    children: PropTypes.object,
   };
 
-  loadMoreArticles(page) {
-    this.props.fetchArticlesDispatcher(page);
+  loadMoreArticles(page, query) {
+    this.props.fetchArticlesDispatcher(page, query);
   }
 
   render() {
-    const { articles, articleIds, hasMore } = this.props;
+    const { articles, articleIds, hasMore, query, children } = this.props;
 
     return (
       <div className="col-xs-8 col-xs-offset-2 home__feed-container">
+        {children}
         <InfiniteScroll
           pageStart={1}
-          loadMore={(page) => { this.loadMoreArticles(page); }}
+          loadMore={(page) => { this.loadMoreArticles(page, query); }}
           hasMore={hasMore}
           loader={<Spinner className="small" />}
           threshold={500}

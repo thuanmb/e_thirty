@@ -65,12 +65,12 @@ class Article extends Component {
           </span>
         </header>
 
-        <h1 className="post-title m-t-40">{title}</h1>
+        <h1 className="post-title m-t-60">{title}</h1>
         <h2 className="post-subtitle">{subtitle}</h2>
 
         <div className="post-content">
-          <img className="full-image" src={imageUrl} alt="" />
-          <div className="m-t-20" dangerouslySetInnerHTML={{ __html: content }} />
+          <img className="full-image m-t-20" src={imageUrl} alt="" />
+          <div className="m-t-40" dangerouslySetInnerHTML={{ __html: content }} />
         </div>
 
         {userAuthenticated && (

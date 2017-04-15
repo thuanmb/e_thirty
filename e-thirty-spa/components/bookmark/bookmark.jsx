@@ -6,6 +6,7 @@ import ArticleList from '../article/article-list';
 
 class Bookmark extends PureComponent {
   static propTypes = {
+    allArticles: PropTypes.object,
     articles: PropTypes.object,
     fetchMyFavouriteArticlesDispatcher: PropTypes.func,
   };
@@ -15,13 +16,12 @@ class Bookmark extends PureComponent {
   }
 
   render() {
-    const { articles: { isLoading, byIds: allArticles, allIds: articleIds, hasMore }, fetchMyFavouriteArticlesDispatcher } = this.props;
+    const { allArticles, articles: { isLoading, allIds: articleIds, hasMore }, fetchMyFavouriteArticlesDispatcher } = this.props;
 
     return (
       <div className="home container-fluid">
-        <h2>Favourite articles</h2>
         <div className="row m-t-20">
-          {isLoading && allArticles.length === 0 ? (
+          {isLoading && articleIds.length === 0 ? (
             <Spinner />
           ) : (
             <ArticleList articles={allArticles} articleIds={articleIds} hasMore={hasMore} fetchArticlesDispatcher={fetchMyFavouriteArticlesDispatcher} />
@@ -32,7 +32,8 @@ class Bookmark extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ entities: { bookmarks: articles } }) => ({
+const mapStateToProps = ({ entities: { articles: { byIds: allArticles }, bookmarks: articles } }) => ({
+  allArticles,
   articles,
 });
 

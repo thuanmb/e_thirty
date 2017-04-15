@@ -1,9 +1,14 @@
 import { ApiUrls } from './api-urls';
 
+const getActionTypes = (actions, payload) => (
+  actions instanceof Array ?
+    actions.map((action) => ({ type: action, ...payload }))
+    : { type: actions, ...payload }
+);
+
 export const fetchData = (beforeAction, afterAction, url) => (dispatch) => {
-  dispatch({
-    type: beforeAction,
-  });
+  const beforeActionTypes = getActionTypes(beforeAction);
+  dispatch(beforeActionTypes);
 
   return $.ajax({
     url,
@@ -11,10 +16,8 @@ export const fetchData = (beforeAction, afterAction, url) => (dispatch) => {
     contentType: 'application/json',
   }).then((response) => {
     if (response.status === 'OK') {
-      dispatch({
-        type: afterAction,
-        response,
-      });
+      const afterActionTypes = getActionTypes(afterAction, { response });
+      dispatch(afterActionTypes);
     }
   });
 };

@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import { Avatar } from 'CommonComponents';
 import { FormGroup, FormControl } from 'react-bootstrap';
 
@@ -45,31 +44,31 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <Link className="header__logo" to={'/'}>
+        <a className="header__logo" href={'/'}>
           <span className="header__image" />
-        </Link>
+        </a>
 
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <FormGroup controlId="searchArticle" >
-            <FormControl
-              type="text"
-              value={searchValue}
-              placeholder="Search for articles..."
-              onChange={(e) => this.handleChange(e)}
-            />
-          </FormGroup>
-        </form>
+        <div className="header__action-btn">
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <FormGroup controlId="searchArticle" >
+              <FormControl
+                type="text"
+                value={searchValue}
+                placeholder="Search for articles..."
+                onChange={(e) => this.handleChange(e)}
+              />
+            </FormGroup>
+          </form>
 
-        {userData.authenticated ? (
-          <div className="header__action-btn">
+          {userData.authenticated ? (
             <Avatar signOutHandler={signOutHandler} />
-          </div>
-        ) : (
-          <div className="header__action-btn">
-            <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>
-            <div className="header__btn" onClick={this.constructor.gotoLoginPage}>Login</div>
-          </div>
-        )}
+          ) : (
+            <div>
+              <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>
+              <div className="header__btn" onClick={this.constructor.gotoLoginPage}>Login</div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

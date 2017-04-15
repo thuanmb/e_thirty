@@ -20,4 +20,5 @@ export const ApiUrls = {
   Me: `${fullApiPath}/users/me`,
   Bookmarks: `${fullApiPath}/bookmarks`,
   BookmarksIndex: ApiObject(`${fullApiPath}/bookmarks?page=:page`),
+  SearchResult: ApiObject(`${fullApiPath}/articles?page=:page&query=:query`),
 };

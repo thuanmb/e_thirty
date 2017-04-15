@@ -8,6 +8,7 @@ import NoMatch from './components/404/404';
 import Home from './components/home/home';
 import Article from './components/article/article';
 import Bookmark from './components/bookmark/bookmark';
+import SearchResult from './components/search-result/search-result';
 import { LOGGED_IN } from './reducers/user-reducer';
 
 const checkAuth = (nextState, replace, callback) => {
@@ -28,6 +29,7 @@ const Routes = (
         <IndexRoute component={Home} />
         <Route path="articles/:id" component={Article} />
         <Route path="bookmarks" component={Bookmark} />
+        <Route path="search-results/:query" component={SearchResult} />
       </Route>
     </Route>
     <Route path="*" component={NoMatch} />

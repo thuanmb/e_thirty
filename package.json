@@ -67,6 +67,7 @@
     "redux-devtools-extension": "^1.0.0",
     "redux-localstorage": "^0.4.1",
     "redux-logger": "^2.7.4",
+    "redux-multi": "^0.1.12",
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",

@@ -20,7 +20,7 @@ class Home extends PureComponent {
     return (
       <div className="home container-fluid">
         <div className="row m-t-20">
-          {isLoading && allArticles.length === 0 ? (
+          {isLoading && articleIds.length === 0 ? (
             <Spinner />
           ) : (
             <ArticleList articles={allArticles} articleIds={articleIds} hasMore={hasMore} fetchArticlesDispatcher={fetchArticlesDispatcher} />

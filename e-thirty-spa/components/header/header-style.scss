@@ -40,6 +40,27 @@ $avatar_size: 35px;
   &__action-btn {
     vertical-align: middle;
     float: right;
+
+    form, .btn-toolbar {
+      display: inline-block;
+    }
+
+    .form-group {
+      position: relative;
+      margin-right: 10px;
+      top: -12px;
+      width: 250px;
+
+      @include mobile-view{
+        width: 190px;
+      };
+
+      input {
+        height: 30px;
+        border: none;
+        color: #555;
+      }
+    }
   }
 
   &__image{
