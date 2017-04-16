@@ -45,10 +45,15 @@ $avatar_size: 35px;
       display: inline-block;
     }
 
+    &.hasAvatar {
+      .form-group {
+        top: -12px;
+      }
+    }
+
     .form-group {
       position: relative;
       margin-right: 10px;
-      top: -12px;
       width: 250px;
 
       @include mobile-view{

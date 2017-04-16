@@ -48,7 +48,7 @@ class Header extends Component {
           <span className="header__image" />
         </a>
 
-        <div className="header__action-btn">
+        <div className={`header__action-btn ${userData.authenticated ? 'hasAvatar' : ''}`}>
           <form onSubmit={(e) => this.handleSubmit(e)}>
             <FormGroup controlId="searchArticle" >
               <FormControl
@@ -63,10 +63,10 @@ class Header extends Component {
           {userData.authenticated ? (
             <Avatar signOutHandler={signOutHandler} />
           ) : (
-            <div>
+            <span>
               <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>
               <div className="header__btn" onClick={this.constructor.gotoLoginPage}>Login</div>
-            </div>
+            </span>
           )}
         </div>
       </div>

@@ -5,7 +5,7 @@ const userReducer = (state = { authenticated: false, user: { email: 'buimthuan@g
     case LOGGED_IN:
       return {
         ...state,
-        authenticated: true,
+        authenticated: action.user ? action.user : false,
         user: action.user,
       };
     default:
