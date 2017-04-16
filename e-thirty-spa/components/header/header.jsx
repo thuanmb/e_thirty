@@ -61,7 +61,7 @@ class Header extends Component {
           </form>
 
           {userData.authenticated ? (
-            <Avatar signOutHandler={signOutHandler} />
+            <Avatar isAdmin={userData.authenticated && userData.user.isAdmin} signOutHandler={signOutHandler} />
           ) : (
             <span>
               <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>

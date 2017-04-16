@@ -5,7 +5,7 @@ import { history } from 'CorePath/store';
 
 import './avatar-style';
 
-const Avatar = ({ signOutHandler }) => (
+const Avatar = ({ isAdmin, signOutHandler }) => (
   <ButtonToolbar>
     <Dropdown pullRight id="gravatar-dropdown" className="action-dropdown-btn">
       <Dropdown.Toggle noCaret>
@@ -20,9 +20,11 @@ const Avatar = ({ signOutHandler }) => (
           My favourites
         </MenuItem>
 
-        <MenuItem eventKey="3" href="articles/new">
-          Create article
-        </MenuItem>
+        {isAdmin &&
+          <MenuItem eventKey="3" href="articles/new">
+            Create article
+          </MenuItem>
+        }
       </Dropdown.Menu>
     </Dropdown>
   </ButtonToolbar>
@@ -30,6 +32,7 @@ const Avatar = ({ signOutHandler }) => (
 
 Avatar.propTypes = {
   signOutHandler: PropTypes.func,
+  isAdmin: PropTypes.bool,
 };
 
 export default Avatar;

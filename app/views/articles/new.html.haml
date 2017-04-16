@@ -11,7 +11,7 @@
       .col-md-6.col-md-offset-3.col-sm-12
         %h3 Create new article
 
-        = form_for @article, html: { class: 'm-t-40' } do |f|
+        = form_for Article.new, html: { class: 'm-t-40' } do |f|
           .form-group
             = f.label :title, 'Title', class: 'control-label'
             = f.text_field :title, class: 'form-control', required: true

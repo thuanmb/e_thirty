@@ -8,7 +8,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.is_admin?
   end
 
   def create?
