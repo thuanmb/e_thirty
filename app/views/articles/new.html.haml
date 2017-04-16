@@ -5,7 +5,10 @@
 
 
 #e-thirty-container
-  .col-xs-8.col-xs-offset-2.home__feed-container
+  .header
+    %a.header__logo{href: '/'}
+      %span.header__image
+  .col-xs-8.col-xs-offset-2.home__feed-container.m-t-40
     = render 'layouts/messages'
     .row
       .col-md-6.col-md-offset-3.col-sm-12

@@ -27,6 +27,6 @@ This command will
 
 This command will
 * start browser-sync with webpack middleware
-* watch for JSX & JS file changes in e-thirty/e-thirty/
+* watch for JSX & JS file changes in e-thirty/e-thirty-spa/
 * re-bundle front-end resource
 * reload browser

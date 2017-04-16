@@ -64,6 +64,7 @@ group :test do
   gem 'vcr'
   gem 'webmock' # for vcr
   gem 'rspec_junit_formatter'
+  gem 'simplecov'
 end
 
 group :production do

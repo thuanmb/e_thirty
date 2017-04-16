@@ -7,7 +7,7 @@ module Queries
         articles = articles.search(query_param)
       end
 
-      articles.order(published_at: :desc).page(page_index).per(per_page)
+      articles.published.order(published_at: :desc).page(page_index).per(per_page)
     end
   end
 end

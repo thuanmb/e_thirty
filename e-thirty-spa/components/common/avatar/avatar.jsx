@@ -12,19 +12,23 @@ const Avatar = ({ isAdmin, email, signOutHandler }) => (
         <Gravatar email={email} rating="pg" default="retro" />
       </Dropdown.Toggle>
       <Dropdown.Menu className="super-colors">
-        <MenuItem eventKey="1" onClick={signOutHandler}>
-          Logout
-        </MenuItem>
-
         <MenuItem eventKey="2" onSelect={() => history.push('/bookmarks')}>
           My favourites
         </MenuItem>
+
+        {isAdmin &&
+          <MenuItem divider />
+        }
 
         {isAdmin &&
           <MenuItem eventKey="3" href="articles/new">
             Create article
           </MenuItem>
         }
+        <MenuItem divider />
+        <MenuItem eventKey="1" onClick={signOutHandler}>
+          Logout
+        </MenuItem>
       </Dropdown.Menu>
     </Dropdown>
   </ButtonToolbar>

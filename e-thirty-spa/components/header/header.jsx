@@ -68,7 +68,7 @@ class Header extends Component {
             />
           ) : (
             <span>
-              <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>
+              <div className="header__btn btn-signup" onClick={this.constructor.gotoSignUpPage}>Signup</div>
               <div className="header__btn" onClick={this.constructor.gotoLoginPage}>Login</div>
             </span>
           )}

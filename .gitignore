@@ -93,3 +93,5 @@ app/assets/e-thirty/*
 
 # yarn doesn't work well in heroku. Temporary disable it.
 yarn.lock
+
+coverage
