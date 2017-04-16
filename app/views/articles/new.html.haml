@@ -8,10 +8,10 @@
   .header
     %a.header__logo{href: '/'}
       %span.header__image
-  .col-xs-8.col-xs-offset-2.home__feed-container.m-t-40
+  .col-md-8.col-md-offset-2.col-sm-12.home__feed-container.m-t-40{style: "margin-top: 60px;"}
     = render 'layouts/messages'
     .row
-      .col-md-6.col-md-offset-3.col-sm-12
+      .col-xs-12
         %h3 Create new article
 
         = form_for Article.new, html: { class: 'm-t-40' } do |f|

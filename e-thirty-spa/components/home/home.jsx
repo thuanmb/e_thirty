@@ -3,6 +3,7 @@ import { Spinner } from 'CommonComponents';
 import { connect } from 'react-redux';
 import { fetchArticles } from './home-actions';
 import ArticleList from '../article/article-list';
+import ArticleSlider from './article-slideshow';
 
 class Home extends PureComponent {
   static propTypes = {
@@ -19,6 +20,9 @@ class Home extends PureComponent {
 
     return (
       <div className="home container-fluid">
+        <div className="row m-t-20">
+          <ArticleSlider articles={articleIds.slice(0, 5).map((id) => allArticles[id])} />
+        </div>
         <div className="row m-t-20">
           {isLoading && articleIds.length === 0 ? (
             <Spinner />
