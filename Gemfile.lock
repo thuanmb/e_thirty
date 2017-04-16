@@ -68,6 +68,10 @@ GEM
     capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     childprocess (0.6.2)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
@@ -457,6 +461,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-screenshot
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.1.0)
   cucumber
   cucumber-rails

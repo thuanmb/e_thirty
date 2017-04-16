@@ -19,6 +19,10 @@ const Avatar = ({ signOutHandler }) => (
         <MenuItem eventKey="2" onSelect={() => history.push('/bookmarks')}>
           My favourites
         </MenuItem>
+
+        <MenuItem eventKey="3" href="articles/new">
+          Create article
+        </MenuItem>
       </Dropdown.Menu>
     </Dropdown>
   </ButtonToolbar>

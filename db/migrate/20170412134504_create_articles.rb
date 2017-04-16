@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.string :subtitle
       t.text :content
-      t.text :image_url
+      t.string :cover_image
       t.datetime :published_at
       t.belongs_to :user, index: true
 

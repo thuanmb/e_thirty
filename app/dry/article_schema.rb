@@ -1,13 +1,12 @@
-class BookmarkSchema < BaseSchema
+class ArticleSchema < BaseSchema
 
   Schema = Dry::Validation.Form do
-    configure do
-      config.messages_file = 'config/locales/errors.yml'
-      predicates(Predicates::Common)
+    required(:article).schema do
+      required(:title).filled
+      required(:subtitle).filled
+      required(:content).filled
+      required(:cover_image).filled
     end
-
-    required(:user_id).filled(exist?: ::User)
-    required(:article_id).filled(exist?: ::Article)
   end
 
   def self.create(params)

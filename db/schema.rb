@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170412134657) do
     t.string   "title"
     t.string   "subtitle"
     t.text     "content"
-    t.text     "image_url"
+    t.string   "cover_image"
     t.datetime "published_at"
     t.integer  "user_id"
     t.datetime "created_at",   null: false

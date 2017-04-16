@@ -24,7 +24,13 @@ class Bookmark extends PureComponent {
           {isLoading && articleIds.length === 0 ? (
             <Spinner />
           ) : (
-            <ArticleList articles={allArticles} articleIds={articleIds} hasMore={hasMore} fetchArticlesDispatcher={fetchMyFavouriteArticlesDispatcher} />
+            articleIds.length === 0 ? (
+              <div className="col-xs-8 col-xs-offset-2 home__feed-container text-center">
+                <h3>You have no favourite articles yet.</h3>
+              </div>
+            ) : (
+              <ArticleList articles={allArticles} articleIds={articleIds} hasMore={hasMore} fetchArticlesDispatcher={fetchMyFavouriteArticlesDispatcher} />
+            )
           )}
         </div>
       </div>

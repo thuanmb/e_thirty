@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :articles, only: [:new, :create]
+
   match '*a', to: 'e_thirty#index', via: :all
 end

@@ -26,6 +26,7 @@ gem 'multi_json'
 gem 'faker'
 gem 'devise'
 gem 'kaminari'
+gem 'carrierwave', '~> 1.0'
 
 group :development do
   gem 'better_errors'

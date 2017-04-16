@@ -10,7 +10,7 @@ describe Api::V1::ArticlesController do
         article = Article.create(
           title: ::Faker::Lorem.sentence,
           subtitle: ::Faker::Lorem.sentence,
-          image_url: ::Faker::Internet.url,
+          cover_image: ::Faker::Internet.url,
           content: ::Faker::Lorem.sentence,
           published_at: rand(1..12).minutes.ago)
 

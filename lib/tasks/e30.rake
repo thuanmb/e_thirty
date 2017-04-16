@@ -11,7 +11,7 @@ namespace :e30 do
         Article.create(
           title: "[Title - #{index}] These 8 tools can help you deal with the challenges of remote work",
           subtitle: "[Subtitle - #{index}] Stay in touch and be productive, while enjoying the flexibility of working outside of the office",
-          image_url: "https://e27.co/wp-content/uploads/2017/04/remote-working-1.jpg",
+          cover_image: "/public/uploads/article/cover_image/1/remote-working-1.jpg",
           content: "<p>[Content - #{index}]</p>#{content}",
           published_at: rand(1..10000).minutes.ago,
           user_id: admin.id

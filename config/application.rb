@@ -39,6 +39,7 @@ module EThirty
       lib
       app/dry
       app/queries
+      app/uploaders
       app/models/concerns
     ].map { |path| "#{Rails.root}/#{path}" }
 
