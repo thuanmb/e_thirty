@@ -39,7 +39,7 @@ class Header extends Component {
   }
 
   render() {
-    const { signOutHandler, userData } = this.props;
+    const { signOutHandler, userData: { authenticated, user: { email, isAdmin } } } = this.props;
     const { searchValue } = this.state;
 
     return (
@@ -48,7 +48,7 @@ class Header extends Component {
           <span className="header__image" />
         </a>
 
-        <div className={`header__action-btn ${userData.authenticated ? 'hasAvatar' : ''}`}>
+        <div className={`header__action-btn ${authenticated ? 'hasAvatar' : ''}`}>
           <form onSubmit={(e) => this.handleSubmit(e)}>
             <FormGroup controlId="searchArticle" >
               <FormControl
@@ -60,8 +60,12 @@ class Header extends Component {
             </FormGroup>
           </form>
 
-          {userData.authenticated ? (
-            <Avatar isAdmin={userData.authenticated && userData.user.isAdmin} signOutHandler={signOutHandler} />
+          {authenticated ? (
+            <Avatar
+              isAdmin={authenticated && isAdmin}
+              signOutHandler={signOutHandler}
+              email={email}
+            />
           ) : (
             <span>
               <div className="header__btn" onClick={this.constructor.gotoSignUpPage}>Signup</div>

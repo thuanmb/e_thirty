@@ -5,11 +5,11 @@ import { history } from 'CorePath/store';
 
 import './avatar-style';
 
-const Avatar = ({ isAdmin, signOutHandler }) => (
+const Avatar = ({ isAdmin, email, signOutHandler }) => (
   <ButtonToolbar>
     <Dropdown pullRight id="gravatar-dropdown" className="action-dropdown-btn">
       <Dropdown.Toggle noCaret>
-        <Gravatar email="buimthuan@gmail.com" rating="pg" />
+        <Gravatar email={email} rating="pg" default="retro" />
       </Dropdown.Toggle>
       <Dropdown.Menu className="super-colors">
         <MenuItem eventKey="1" onClick={signOutHandler}>
@@ -33,6 +33,7 @@ const Avatar = ({ isAdmin, signOutHandler }) => (
 Avatar.propTypes = {
   signOutHandler: PropTypes.func,
   isAdmin: PropTypes.bool,
+  email: PropTypes.string,
 };
 
 export default Avatar;
