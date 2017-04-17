@@ -73,7 +73,7 @@ Project summary
 2. The articles have the same title, description, and image. The only different is the prefix `[Title - ]`, `[Subtitle - ]`, `[Content - ]`.
 For testing the searching feature, I suggest that you search with the keywords which include the prefix for better result. For example: `Title - 77`
 3. To add an article into you favourites, please go to the end of detail page. To show the list of your favourites, you can click on the avatar, then choose `My favourites`.
-4. To create new article, you can click on the avatar, then choose `Create article`. For now, only admin can create new article, it mean the new created user create new article.
+4. To create new article, you can click on the avatar, then choose `Create article` option. For now, only admin can create new article, it mean the new created user can NOT create new article.
 Please use the admin account with email `admin@e30.com` and password `changeme` to see this option.
 5. When creating new article, you will have an option `Publish this article now` to publish the article. Uncheck it will cause the new created article not show in home page.
 
@@ -83,7 +83,7 @@ Please use the admin account with email `admin@e30.com` and password `changeme` 
 I choose it because I familiar with it and it help me quickly create a new site with scalability. For the more reasons why should we choose RoR, I think we can search it on the internet.
 
 ##### 2. Postgres
-To be honest, I don't have much experience with the different DBs.
+To be honest, I don't have much experience with the different between DBs.
 I choose Postgres because my previous company (Atlassian) is using for their products. We work with it with no problems from performance to scalability.
 And one more reason, Postgres is the default DB in Heroku.
 
