@@ -107,7 +107,7 @@ We have a list with at least 9500 articles, so I think rendering a large list wi
 
 1. I'm using a rich text editor for inputting the content of article. It work well except the images. I'm not sure about the solution to allow user upload an image inside an article and submit it.
 2. I'm searching the articles by using DB queries, I know that it is not a good solution, but for the limitation of time, I must to use it. To improve it, I think we can use the `elasticsearch`
-3. Missing the unit for front-end and integration test
+3. For now I just save updaloaded image in public folder, it should be uploaded into cloud as AWS and this process should be in background.
 
 ### Additional note
 
